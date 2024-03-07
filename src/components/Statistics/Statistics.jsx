@@ -15,7 +15,15 @@ export default class Statistics extends Component {
     onClick = (event) => {
         const btn = event.target.name;
         this.setState({[btn]: this.state[btn]+1})
-    }
+  }
+  
+  countTotalFeedback() {
+    return this.state.bad + this.state.good + this.state.neutral;
+  }
+
+  countPositiveFeedbackPercentage() {
+    return (this.state.good*100) / this.countTotalFeedback();
+  }
   
 
   render() {
@@ -38,6 +46,8 @@ export default class Statistics extends Component {
             <p>Good: {this.state.good}</p>
             <p>Neutral: {this.state.neutral}</p>
             <p>Bad: {this.state.bad}</p>
+            <p>Total: {this.countTotalFeedback()}</p>
+            <p>Positive feedback: {isNaN(this.countPositiveFeedbackPercentage()) ? 0 : this.countPositiveFeedbackPercentage()}%</p>
           </div>
         </div>
       );
