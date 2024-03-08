@@ -1,19 +1,5 @@
 .wrapper {
     background-color: aliceblue;
     padding: 20px;
-}
-
-.btnWrap {
-    display: flex;
-    gap: 20px;
-}
-
-.btn {
-    padding: 5px;
-    background-color: pink;
-    border-radius: 5px;
-
-}
-.btn:hover {
-    background-color: palevioletred;
+    padding-top: 10px;
 }

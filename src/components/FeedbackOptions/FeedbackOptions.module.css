@@ -1,0 +1,15 @@
+.btnWrap {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.btn {
+    padding: 5px;
+    background-color: pink;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: palevioletred;
+}

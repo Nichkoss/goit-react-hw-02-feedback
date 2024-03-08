@@ -1,55 +1,19 @@
-import css from './Statistics.module.css'
-import React, { Component } from "react"
+import css from './Statistics.module.css';
+import React, { Component } from 'react';
 
 export default class Statistics extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-        good: 0,
-        neutral: 0,
-        bad: 0
-        }
-    };
-    
-    onClick = (event) => {
-        const btn = event.target.name;
-        this.setState({[btn]: this.state[btn]+1})
-  }
-  
-  countTotalFeedback() {
-    return this.state.bad + this.state.good + this.state.neutral;
-  }
-
-  countPositiveFeedbackPercentage() {
-    return (this.state.good*100) / this.countTotalFeedback();
-  }
-  
-
   render() {
-      return (
-        <div className={css.wrapper}>
-          <h3 className={css.title}>Please leave feedback</h3>
-          <div onClick={this.onClick} className={css.btnWrap}>
-            <button name="good" type="button" className={css.btn}>
-              Good
-            </button>
-            <button name="neutral" type="button" className={css.btn}>
-              Neutral
-            </button>
-            <button name="bad" type="button" className={css.btn}>
-              Bad
-            </button>
-          </div>
-
-          <div className={css.results}>
-            <p>Good: {this.state.good}</p>
-            <p>Neutral: {this.state.neutral}</p>
-            <p>Bad: {this.state.bad}</p>
-            <p>Total: {this.countTotalFeedback()}</p>
-            <p>Positive feedback: {isNaN(this.countPositiveFeedbackPercentage()) ? 0 : this.countPositiveFeedbackPercentage()}%</p>
-          </div>
+    const { good, neutral, bad, total, positivePercentage } = this.props;
+    return (
+      <div className={css.wrapper}>
+        <div className={css.results}>
+          <p>Good: {good}</p>
+          <p>Neutral: {neutral}</p>
+          <p>Bad: {bad}</p>
+          <p>Total: {total}</p>
+          <p>Positive feedback: {positivePercentage}%</p>
         </div>
-      );
+      </div>
+    );
   }
 }
